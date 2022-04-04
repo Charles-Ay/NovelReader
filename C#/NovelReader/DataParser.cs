@@ -1,18 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using Novel;
 using SQLManager;
+using TextLogger;
 
 namespace NovelReader
 {
-    class DataParser
+    public class DataParser
     {
         private Novel.Novel novel;
         private static string workingDir;
         private static SQLManager.SQLManager SQLManager = new SQLManager.SQLManager();
 
-        public void DataParse()
+        public DataParser()
         {
             workingDir = GetWorkAndBookDir();
             string bookDir = Path.Combine(workingDir, "Books");
@@ -59,7 +62,9 @@ namespace NovelReader
             string getter = Path.Combine(workingDir, "TextGetter.exe");
             string inputfile = Path.Combine(workingDir, "input.txt");
             int amount = 0;
+            ConsoleSpiner spin = new ConsoleSpiner();
 
+            //note that total chapters becomes current chapter
             foreach (Novel.Novel novel in novels)
             {
                 string text = novel.initalLink;
@@ -69,10 +74,21 @@ namespace NovelReader
                 writer.WriteLine(text);
 
                 writer.Close();
-                Process.Start(getter);
+                var curprocess = new Process();
+                curprocess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                curprocess.StartInfo.FileName = getter;
+                curprocess.Start();
+                Console.WriteLine($"Retriving - {novel.name} chapter {novel.totalChapters}...");
+                while (!curprocess.HasExited)
+                {
+                    spin.Turn();
+                }
+                //Thread.Sleep(System.TimeSpan.FromSeconds(5));
                 ++amount;
             }
             return amount;
         }
+
+
     }
 }

@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['TextGetter.py'],
+a = Analysis(['Textgetter.py'],
              pathex=[],
              binaries=[],
              datas=[],
@@ -26,7 +26,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,  
           [],
-          name='TextGetter',
+          name='Textgetter',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,

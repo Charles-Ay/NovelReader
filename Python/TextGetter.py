@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 import time
 
-filepath = dirname(__file__)
+filepath = os.getcwd()
 
 
 def read_input():
@@ -24,19 +24,21 @@ def read_input():
             # For each line, check if line contains the string
             list_of_results.append((line.rstrip()))
 
-    for row in list_of_results:
-        print(row)
+    #for row in list_of_results:
+        #print(row)
 
     url = list_of_results[0]
 
     # initiating the webdriver. Parameter includes the path of the webdriver.
     ser = Service("./chromedriver")
     op = webdriver.ChromeOptions()
+    op.add_argument('--headless')
+    op.add_argument('--disable-gpu')
     driver = webdriver.Chrome(service=ser, options=op)
     driver.get(url)
 
     # this is just to ensure that the page is loaded
-    time.sleep(3)
+    #time.sleep(1)
 
     html = driver.page_source
 
@@ -57,7 +59,8 @@ def get_file(soup):
         text_file = open(filepath + "/books/" + novel_title + ".txt", "w+", encoding="utf-8")
         return text_file
     else:
-        with open("books/" + novel_title + ".txt", "x") as text_file:
+        os.makedirs(name=filepath + "/books", exist_ok=True)
+        with open(filepath + "/books/" + novel_title + ".txt", "x") as text_file:
             text_file.write("")
             text_file.close()
 

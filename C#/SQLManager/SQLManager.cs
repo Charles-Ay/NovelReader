@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using static TextLogger.Logger;
+using System.Diagnostics;
+using TextLogger;
 
 namespace SQLManager
 {
@@ -12,7 +13,7 @@ namespace SQLManager
         //string to connect to db
         private const string connetionString = @"Data Source=localhost\CHARLES_SERVER;Initial Catalog=NovelReader;Integrated Security=True;";
         //all the novels being grabed
-        private static List<Novel.Novel> novels;
+        //private static List<Novel.Novel> novels;
 
         /// <summary>
         /// initlize to sql and get the know novles
@@ -49,7 +50,7 @@ namespace SQLManager
             for (int i = 0; i < novel.totalChapters; ++i)
             {
                 string curchapter = novel.initalLink.Remove(novel.initalLink.Length - 1, 1) + (i + 1);
-                sql = $"INSERT into Novels ({novel.name}, {i + 1}, {curchapter}, {novel.source})";
+                sql = $"EXEC insertNovel @name = \'{novel.name}\', @chapter = {i + 1}, @link = \'{curchapter}\', @source = \'{novel.source}\'";
                 command = new SqlCommand(sql, cnn);
                 dataAdapter.InsertCommand = new SqlCommand(sql, cnn);
                 try
@@ -58,11 +59,17 @@ namespace SQLManager
                 }
                 catch (Exception e)
                 {
-                    writeToLog(e.Message);
+                    Logger.writeToLog($"SQL ERROR - Line:{Logger.GetLineNumber(e)} -- {e.Message} for query: {sql}");
                 }
                 command.Dispose();
             }
         }
+
+        private void checkIfUpdated()
+        {
+
+        }
+
 
         public List<Novel.Novel> GetNovelChapters(string name, string source)
         {
@@ -71,8 +78,9 @@ namespace SQLManager
             SqlDataReader reader;
             string sql;
 
-            sql = $"SELECT * FROM Novels WHERE Name = {name} and Source = {source}";
+            sql = $"SELECT * FROM Novels WHERE Name = \'{name}\' and Source = \'{source}\' ORDER BY CHAPTER";
             command = new SqlCommand(sql, cnn);
+
             reader = command.ExecuteReader();
 
             while (reader.Read())
