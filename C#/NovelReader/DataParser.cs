@@ -11,7 +11,6 @@ namespace NovelReader
 {
     public class DataParser
     {
-        private Novel.Novel novel;
         private static string workingDir;
         private static SQLManager.SQLManager SQLManager = new SQLManager.SQLManager();
 
