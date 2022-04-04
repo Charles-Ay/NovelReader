@@ -1,0 +1,2 @@
+SQL ERROR - Line:58 -- The INSERT statement conflicted with the FOREIGN KEY constraint "FK__Novels__Source__29572725". The conflict occurred in database "NovelReader", table "dbo.Sources", column 'Name'.
+The statement has been terminated. for query: EXEC insertNovel @name = 'Overgeared', @chapter = 1, @link = 'https://freewebnovel.com/overgeared-novel/chapter-1.htm1', @source = 'FreeWebNovel'

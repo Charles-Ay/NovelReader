@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6FD37383-9EE1-4D64-835C-7444683D4095}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>NovelReader</RootNamespace>
-    <AssemblyName>NovelReader</AssemblyName>
+    <ProjectGuid>{68EAEF8C-981A-426C-9E3D-B31B4453732C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebRetriver</RootNamespace>
+    <AssemblyName>WebRetriver</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,29 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataParser.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Scrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{f7743979-bbc5-475c-a7ec-337335d524e9}</Project>
       <Name>Logger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Novel\Novel.csproj">
-      <Project>{39AA84E2-2BC5-4E13-9AF8-1661B0E2B7E0}</Project>
-      <Name>Novel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SQLManager\SQLManager.csproj">
-      <Project>{12d33ac1-a218-49e1-8fe4-f3220ea4d08d}</Project>
-      <Name>SQLManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebRetriver\WebRetriever.csproj">
-      <Project>{68eaef8c-981a-426c-9e3d-b31b4453732c}</Project>
-      <Name>WebRetriever</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

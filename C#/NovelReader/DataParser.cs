@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
-using Novel;
-using SQLManager;
+using WebRetriever;
 using TextLogger;
 
 namespace NovelReader
@@ -28,7 +26,12 @@ namespace NovelReader
         {
             SQLManager.InsertChaptersWithLinks(novel);
             List<Novel.Novel> novels = SQLManager.GetNovelChapters(novel.name, novel.source);
-            return doPython(novels);
+            if(!novel.initalLink.Contains(".html"))return doPython(novels);
+            else
+            {
+                Scrapper retriever = new Scrapper();
+                return retriever.Scrape(novel.initalLink);
+            }
         }
 
         /// <summary>

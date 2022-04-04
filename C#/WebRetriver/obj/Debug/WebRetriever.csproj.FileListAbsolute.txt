@@ -1,0 +1,9 @@
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\bin\Debug\WebRetriver.dll
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\bin\Debug\WebRetriver.pdb
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\bin\Debug\Logger.dll
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\bin\Debug\Logger.pdb
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.AssemblyReference.cache
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.CoreCompileInputs.cache
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.CopyComplete
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.dll
+C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.pdb

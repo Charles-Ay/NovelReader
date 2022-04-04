@@ -12,3 +12,5 @@ C:\Projects\other\Novel\NovelReader\C#\NovelReader\obj\Debug\NovelReader.csproj.
 C:\Projects\other\Novel\NovelReader\C#\NovelReader\obj\Debug\NovelReader.csproj.CopyComplete
 C:\Projects\other\Novel\NovelReader\C#\NovelReader\obj\Debug\NovelReader.exe
 C:\Projects\other\Novel\NovelReader\C#\NovelReader\obj\Debug\NovelReader.pdb
+C:\Projects\other\Novel\NovelReader\C#\NovelReader\bin\Debug\WebRetriver.dll
+C:\Projects\other\Novel\NovelReader\C#\NovelReader\bin\Debug\WebRetriver.pdb

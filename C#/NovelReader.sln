@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLManager", "SQLManager\SQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelReaderTest", "NovelReaderTest\NovelReaderTest.csproj", "{0FC82FEE-1A94-4C66-B3E2-49D6B9841D22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRetriever", "WebRetriver\WebRetriever.csproj", "{68EAEF8C-981A-426C-9E3D-B31B4453732C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0FC82FEE-1A94-4C66-B3E2-49D6B9841D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FC82FEE-1A94-4C66-B3E2-49D6B9841D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FC82FEE-1A94-4C66-B3E2-49D6B9841D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68EAEF8C-981A-426C-9E3D-B31B4453732C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68EAEF8C-981A-426C-9E3D-B31B4453732C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68EAEF8C-981A-426C-9E3D-B31B4453732C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68EAEF8C-981A-426C-9E3D-B31B4453732C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
