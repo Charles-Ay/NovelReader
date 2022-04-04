@@ -1,1 +1,0 @@
-SQL ERROR - Line:58 -- Incorrect syntax near 'Overgeared'. for query: EXEC insertNovel('Overgeared', 1, 'https://www.wuxiaworld.com/novel/overgeared/og-chapter-1', 'WuxiaWorld')
