@@ -1,11 +1,11 @@
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\SQLManager.dll
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\SQLManager.pdb
+C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Logger.dll
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Novel.dll
+C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Logger.pdb
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Novel.pdb
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.csproj.AssemblyReference.cache
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.csproj.CoreCompileInputs.cache
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.csproj.CopyComplete
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.dll
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.pdb
-C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Logger.dll
-C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Logger.pdb
