@@ -1,21 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using static TextLogger.Logger;
 
 namespace SQLManager
 {
     public class SQLManager
     {
+        //current connection
         private SqlConnection cnn;
-        private string connetionString = @"Data Source=localhost\CHARLES_SERVER;Initial Catalog=NovelReader;Integrated Security=True;";
+        //string to connect to db
+        private const string connetionString = @"Data Source=localhost\CHARLES_SERVER;Initial Catalog=NovelReader;Integrated Security=True;";
+        //all the novels being grabed
         private static List<Novel.Novel> novels;
 
-
+        /// <summary>
+        /// initlize to sql and get the know novles
+        /// </summary>
         public SQLManager()
         {
             cnn = new SqlConnection(connetionString);
             cnn.Open();
-            initNovles();
+            //initNovles();
         }
 
         ~SQLManager()
@@ -23,42 +29,60 @@ namespace SQLManager
             cnn.Close();
         }
 
-        void initNovles()
-        {
-            if (novels == null)
-            {
-                novels = new List<Novel.Novel>();
+        //void initNovles()
+        //{
+        //    if (novels == null)
+        //    {
+        //        novels = new List<Novel.Novel>();
 
-                Novel.Novel novel = new Novel.Novel("Overgeared", 1601, "https://www.wuxiaworld.com/novel/overgeared/og-chapter-1", "WuxiaWorld");
-            }
-        }
+        //        Novel.Novel novel = new Novel.Novel("Overgeared", 1601, "https://www.wuxiaworld.com/novel/overgeared/og-chapter-1", "WuxiaWorld");
+        //    }
+        //}
 
-        public void InsertChaptersWithLinks()
+
+        public void InsertChaptersWithLinks(Novel.Novel novel)
         {
             SqlCommand command;
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            String sql;
+            string sql;
 
-            foreach (Novel.Novel novel in novels)
+            for (int i = 0; i < novel.totalChapters; ++i)
             {
-                for (int i = 0; i < novel.totalChapters; ++i)
+                string curchapter = novel.initalLink.Remove(novel.initalLink.Length - 1, 1) + (i + 1);
+                sql = $"INSERT into Novels ({novel.name}, {i + 1}, {curchapter}, {novel.source})";
+                command = new SqlCommand(sql, cnn);
+                dataAdapter.InsertCommand = new SqlCommand(sql, cnn);
+                try
                 {
-                    string curchapter = novel.initalLink.Remove(novel.initalLink.Length - 1, 1) + (i + 1);
-                    sql = $"INSERT into Novels ({novel.name}, {i + 1}, {curchapter}, {novel.source})";
-                    command = new SqlCommand(sql, cnn);
-                    dataAdapter.InsertCommand = new SqlCommand(sql, cnn);
-                    try
-                    {
-                        dataAdapter.InsertCommand.ExecuteNonQuery();
-                    }
-                    catch (Exception e)
-                    {
-                    }
-
-                    command.Dispose();
+                    dataAdapter.InsertCommand.ExecuteNonQuery();
                 }
+                catch (Exception e)
+                {
+                    writeToLog(e.Message);
+                }
+                command.Dispose();
             }
-            Console.WriteLine("Inserted");
+        }
+
+        public List<Novel.Novel> GetNovelChapters(string name, string source)
+        {
+            List<Novel.Novel> novels = new List<Novel.Novel>();
+            SqlCommand command;
+            SqlDataReader reader;
+            string sql;
+
+            sql = $"SELECT * FROM Novels WHERE Name = {name} and Source = {source}";
+            command = new SqlCommand(sql, cnn);
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int chapter = (int)reader.GetValue(1);
+                string link = (string)reader.GetValue(2);
+                Novel.Novel novel = new Novel.Novel(name, chapter, link, source);
+                novels.Add(novel);
+            }
+            return novels;
         }
     }
 }

@@ -7,3 +7,5 @@ C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.csproj.Co
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.csproj.CopyComplete
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.dll
 C:\Projects\other\Novel\NovelReader\C#\SQLManager\obj\Debug\SQLManager.pdb
+C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Logger.dll
+C:\Projects\other\Novel\NovelReader\C#\SQLManager\bin\Debug\Logger.pdb

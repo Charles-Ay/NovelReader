@@ -51,9 +51,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{f7743979-bbc5-475c-a7ec-337335d524e9}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Novel\Novel.csproj">
       <Project>{39AA84E2-2BC5-4E13-9AF8-1661B0E2B7E0}</Project>
       <Name>Novel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLManager\SQLManager.csproj">
+      <Project>{12d33ac1-a218-49e1-8fe4-f3220ea4d08d}</Project>
+      <Name>SQLManager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,26 +1,32 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Novel;
+using SQLManager;
 
 namespace NovelReader
 {
     class DataParser
     {
-        private static Novel.Novel novel;
-        private string workingDir;
+        private Novel.Novel novel;
+        private static string workingDir;
+        private static SQLManager.SQLManager SQLManager = new SQLManager.SQLManager();
+
+        public void DataParse()
+        {
+            workingDir = GetWorkAndBookDir();
+            string bookDir = Path.Combine(workingDir, "Books");
+        }
 
         /// <summary>
         /// Class used to get data from website
         /// </summary>
         /// <param name="name"></param>
-        public void Fetch(string name)
+        public int Fetch(Novel.Novel novel)
         {
-            workingDir = GetWorkAndBookDir();
-            string bookDir = Path.Combine(workingDir, "Books");
-
-            //get from novel site
-            doPython();
-
+            SQLManager.InsertChaptersWithLinks(novel);
+            List<Novel.Novel> novels = SQLManager.GetNovelChapters(novel.name, novel.source);
+            return doPython(novels);
         }
 
         /// <summary>
@@ -48,9 +54,25 @@ namespace NovelReader
         /// <summary>
         /// run the python script for getting website data
         /// </summary>
-        private void doPython()
+        private int doPython(List<Novel.Novel> novels)
         {
-            Process.Start(Path.Combine(workingDir, "TextGetter.exe"));
+            string getter = Path.Combine(workingDir, "TextGetter.exe");
+            string inputfile = Path.Combine(workingDir, "input.txt");
+            int amount = 0;
+
+            foreach (Novel.Novel novel in novels)
+            {
+                string text = novel.initalLink;
+
+                if(!File.Exists(inputfile))File.Create(inputfile).Dispose();
+                TextWriter writer = new StreamWriter(inputfile, false);
+                writer.WriteLine(text);
+
+                writer.Close();
+                Process.Start(getter);
+                ++amount;
+            }
+            return amount;
         }
     }
 }

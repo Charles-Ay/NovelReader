@@ -4,8 +4,7 @@ namespace TextLogger
 {
     public class Logger
     {
-        private static FileStream file;
-        private static string NAME = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
+        private static string NAME = Path.Combine(Directory.GetCurrentDirectory(), "Logs.txt");
         public static Logger TextLogger = new Logger();
 
         private Logger()
@@ -16,12 +15,12 @@ namespace TextLogger
             }
         }
 
-        public static void write(string text)
+        public static void writeToLog(string text)
         {
-            using (StreamWriter writer = File.CreateText(NAME))
-            {
-                writer.WriteLine(text);
-            }
+            if (!File.Exists(NAME)) File.Create(NAME).Dispose();
+            TextWriter writer = new StreamWriter(NAME, false);
+            writer.WriteLine(text);
+            writer.Close();
         }
     }
 }
