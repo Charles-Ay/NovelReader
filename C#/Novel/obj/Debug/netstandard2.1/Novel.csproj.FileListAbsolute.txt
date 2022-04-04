@@ -1,4 +1,0 @@
-C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\netstandard2.1\Novel.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\netstandard2.1\Novel.AssemblyInfoInputs.cache
-C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\netstandard2.1\Novel.AssemblyInfo.cs
-C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\netstandard2.1\Novel.csproj.CoreCompileInputs.cache

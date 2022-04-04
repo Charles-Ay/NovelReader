@@ -6,13 +6,16 @@ namespace NovelReader
 {
     class DataParser
     {
-        public static Novel.Novel novel;
+        private static Novel.Novel novel;
+        private string workingDir;
 
-        public string workingDir;
-
+        /// <summary>
+        /// Class used to get data from website
+        /// </summary>
+        /// <param name="name"></param>
         public void Fetch(string name)
         {
-            workingDir = GetWorkDir();
+            workingDir = GetWorkAndBookDir();
             string bookDir = Path.Combine(workingDir, "Books");
 
             //get from novel site
@@ -20,23 +23,13 @@ namespace NovelReader
 
         }
 
-        private string GetWorkDir()
+        /// <summary>
+        /// Get the current directory and book dir
+        /// </summary>
+        /// <returns></returns>
+        private string GetWorkAndBookDir()
         {
             string dir = Directory.GetCurrentDirectory();
-            //while (!Directory.Exists("./books"))
-            //{
-            //   
-            //    foreach (var file in files)
-            //    {
-            //        if (file.Contains("books") || file.Contains("Books"))
-            //        {
-            //            return dir;
-
-            //        }
-            //    }
-            //    dir = Directory.GetParent(dir).ToString();
-
-            //}
 
             var files = Directory.GetDirectories(dir, "*", SearchOption.TopDirectoryOnly);
 
@@ -52,9 +45,11 @@ namespace NovelReader
             return dir;
         }
 
+        /// <summary>
+        /// run the python script for getting website data
+        /// </summary>
         private void doPython()
         {
-            
             Process.Start(Path.Combine(workingDir, "TextGetter.exe"));
         }
     }
