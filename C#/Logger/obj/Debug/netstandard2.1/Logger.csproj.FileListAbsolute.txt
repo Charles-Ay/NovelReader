@@ -1,0 +1,4 @@
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Logger\obj\Debug\netstandard2.1\Logger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Logger\obj\Debug\netstandard2.1\Logger.AssemblyInfoInputs.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Logger\obj\Debug\netstandard2.1\Logger.AssemblyInfo.cs
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Logger\obj\Debug\netstandard2.1\Logger.csproj.CoreCompileInputs.cache

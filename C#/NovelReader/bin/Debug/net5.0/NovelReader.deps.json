@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v5.0": {
       "NovelReader/1.0.0": {
         "dependencies": {
-          "IronPython": "2.7.12"
+          "IronPython": "2.7.12",
+          "Logger": "1.0.0",
+          "Novel": "1.0.0"
         },
         "runtime": {
           "NovelReader.dll": {}
@@ -284,6 +286,16 @@
             "fileVersion": "4.700.19.56404"
           }
         }
+      },
+      "Logger/1.0.0": {
+        "runtime": {
+          "Logger.dll": {}
+        }
+      },
+      "Novel/1.0.0": {
+        "runtime": {
+          "Novel.dll": {}
+        }
       }
     }
   },
@@ -390,6 +402,16 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Logger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Novel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

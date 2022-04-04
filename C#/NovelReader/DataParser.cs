@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
+using Novel;
 
 namespace NovelReader
 {
     class DataParser
     {
-        public static Novel novel;
+        public static Novel.Novel novel;
+
+        public string workingDir;
+
         public void Fetch(string name)
         {
-            string mainDir = GetWorkDir();
-            string bookDir = Path.Combine(mainDir, "Books");
+            workingDir = GetWorkDir();
+            string bookDir = Path.Combine(workingDir, "Books");
 
             //get from novel site
-            doPython(mainDir);
+            doPython();
 
         }
 
@@ -55,22 +52,10 @@ namespace NovelReader
             return dir;
         }
 
-        private void doPython(string path)
+        private void doPython()
         {
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = path + @"\TextGetter.py";
-            start.UseShellExecute = true;
-            //start.Arguments = args;//args is path to .py file and any cmd line args
-            start.UseShellExecute = false;
-            start.RedirectStandardOutput = true;
-            using (Process process = Process.Start(start))
-            {
-                using (StreamReader reader = process.StandardOutput)
-                {
-                    string result = reader.ReadToEnd();
-                    Console.Write(result);
-                }
-            }
+            
+            Process.Start(Path.Combine(workingDir, "TextGetter.exe"));
         }
     }
 }

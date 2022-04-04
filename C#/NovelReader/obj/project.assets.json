@@ -303,6 +303,26 @@
             "rid": "win"
           }
         }
+      },
+      "Logger/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Logger.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logger.dll": {}
+        }
+      },
+      "Novel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Novel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Novel.dll": {}
+        }
       }
     }
   },
@@ -805,11 +825,23 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Logger/1.0.0": {
+      "type": "project",
+      "path": "../Logger/Logger.csproj",
+      "msbuildProject": "../Logger/Logger.csproj"
+    },
+    "Novel/1.0.0": {
+      "type": "project",
+      "path": "../Novel/Novel.csproj",
+      "msbuildProject": "../Novel/Novel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "IronPython >= 2.7.12"
+      "IronPython >= 2.7.12",
+      "Logger >= 1.0.0",
+      "Novel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -846,7 +878,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\charl\\Documents\\Programming(on-d)\\C#\\NovelReader\\C#\\Logger\\Logger.csproj": {
+              "projectPath": "C:\\Users\\charl\\Documents\\Programming(on-d)\\C#\\NovelReader\\C#\\Logger\\Logger.csproj"
+            },
+            "C:\\Users\\charl\\Documents\\Programming(on-d)\\C#\\NovelReader\\C#\\Novel\\Novel.csproj": {
+              "projectPath": "C:\\Users\\charl\\Documents\\Programming(on-d)\\C#\\NovelReader\\C#\\Novel\\Novel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
