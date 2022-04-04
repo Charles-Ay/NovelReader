@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Novel;
+using System.Windows.Forms;
+
 
 namespace SQLManager
 {
@@ -11,7 +13,7 @@ namespace SQLManager
     {
         //    private SqlConnection cnn;
         //    private string connetionString = @"Data Source=localhost\CHARLES_SERVER;Initial Catalog=NovelReader;Integrated Security=True;";
-        private static List<Novel> novels;
+        //    //private static List<Novel> novels;
 
 
         public SQLManager()

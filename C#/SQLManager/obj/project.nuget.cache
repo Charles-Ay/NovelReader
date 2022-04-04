@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "B4x5AbCa4orgWToHCTYSG7es0l+7Y2l8IK9v3hHaiBRiQzbndLcSPIp2AaBQJuiT1cQhBizP7U0xsjOX1SLSMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\charl\\Documents\\Programming(on-d)\\C#\\NovelReader\\C#\\SQLManager\\SQLManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\charl\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\charl\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

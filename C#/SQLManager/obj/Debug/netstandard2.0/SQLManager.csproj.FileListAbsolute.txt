@@ -1,0 +1,10 @@
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\bin\Debug\netstandard2.0\SQLManager.deps.json
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\bin\Debug\netstandard2.0\SQLManager.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\bin\Debug\netstandard2.0\SQLManager.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.csproj.AssemblyReference.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.AssemblyInfoInputs.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.AssemblyInfo.cs
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.csproj.CoreCompileInputs.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\SQLManager\obj\Debug\netstandard2.0\SQLManager.pdb
