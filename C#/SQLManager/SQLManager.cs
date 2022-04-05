@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using TextLogger;
 
 namespace SQLManager
 {
     public class SQLManager
     {
-        //current connection
-        private SqlConnection cnn;
+
         //string to connect to db
         private const string connetionString = @"Data Source=localhost\CHARLES_SERVER;Initial Catalog=NovelReader;Integrated Security=True;";
         //all the novels being grabed
@@ -20,14 +20,11 @@ namespace SQLManager
         /// </summary>
         public SQLManager()
         {
-            cnn = new SqlConnection(connetionString);
-            cnn.Open();
             //initNovles();
         }
 
         ~SQLManager()
         {
-            //if(cnn.State == System.Data.ConnectionState.Open)cnn.Close();
         }
 
         //void initNovles()
@@ -43,25 +40,33 @@ namespace SQLManager
 
         public void InsertChaptersWithLinks(Novel.Novel novel)
         {
-            SqlCommand command;
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            string sql;
-
-            for (int i = 0; i < novel.totalChapters; ++i)
+            using (SqlConnection cnn = new SqlConnection(connetionString))
             {
-                string curchapter = novel.initalLink.Remove(novel.initalLink.Length - 1, 1) + (i + 1);
-                sql = $"EXEC insertNovel @name = \'{novel.name}\', @chapter = {i + 1}, @link = \'{curchapter}\', @source = \'{novel.source}\'";
-                command = new SqlCommand(sql, cnn);
-                dataAdapter.InsertCommand = new SqlCommand(sql, cnn);
-                try
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                string sql;
+
+                for (int i = 0; i < novel.totalChapters; ++i)
                 {
-                    dataAdapter.InsertCommand.ExecuteNonQuery();
+                    //replace numbers with more than one digit with ""
+                    string curchapter = Regex.Replace(novel.initalLink, "[0-9]{2,}", $"");
+                    //replace remaing last digit
+                    curchapter = Regex.Replace(curchapter, "[0-9]", $"{i + 1}");
+
+                    sql = $"EXEC insertNovel @name = \'{novel.name}\', @chapter = {i + 1}, @link = \'{curchapter}\', @source = \'{novel.source}\'";
+                    command = new SqlCommand(sql, cnn);
+                    dataAdapter.InsertCommand = new SqlCommand(sql, cnn);
+                    try
+                    {
+                        dataAdapter.InsertCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.writeToLog($"SQL ERROR - Line:{Logger.GetLineNumber(e)} -- {e.Message} for query: {sql}");
+                    }
+                    command.Dispose();
                 }
-                catch (Exception e)
-                {
-                    Logger.writeToLog($"SQL ERROR - Line:{Logger.GetLineNumber(e)} -- {e.Message} for query: {sql}");
-                }
-                command.Dispose();
             }
         }
 
@@ -73,24 +78,28 @@ namespace SQLManager
 
         public List<Novel.Novel> GetNovelChapters(string name, string source)
         {
-            List<Novel.Novel> novels = new List<Novel.Novel>();
-            SqlCommand command;
-            SqlDataReader reader;
-            string sql;
-
-            sql = $"SELECT * FROM Novels WHERE Name = \'{name}\' and Source = \'{source}\' ORDER BY CHAPTER";
-            command = new SqlCommand(sql, cnn);
-
-            reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (SqlConnection cnn = new SqlConnection(connetionString))
             {
-                int chapter = (int)reader.GetValue(1);
-                string link = (string)reader.GetValue(2);
-                Novel.Novel novel = new Novel.Novel(name, chapter, link, source);
-                novels.Add(novel);
+                cnn.Open();
+                List<Novel.Novel> novels = new List<Novel.Novel>();
+                SqlCommand command;
+                SqlDataReader reader;
+                string sql;
+
+                sql = $"SELECT * FROM Novels WHERE Name = \'{name}\' and Source = \'{source}\' ORDER BY CHAPTER";
+                command = new SqlCommand(sql, cnn);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int chapter = (int)reader.GetValue(1);
+                    string link = (string)reader.GetValue(2);
+                    Novel.Novel novel = new Novel.Novel(name, chapter, link, source);
+                    novels.Add(novel);
+                }
+                return novels;
             }
-            return novels;
         }
     }
 }

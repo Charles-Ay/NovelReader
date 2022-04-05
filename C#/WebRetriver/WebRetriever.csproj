@@ -52,6 +52,10 @@
       <Project>{f7743979-bbc5-475c-a7ec-337335d524e9}</Project>
       <Name>Logger</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Novel\Novel.csproj">
+      <Project>{39aa84e2-2bc5-4e13-9af8-1661b0e2b7e0}</Project>
+      <Name>Novel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

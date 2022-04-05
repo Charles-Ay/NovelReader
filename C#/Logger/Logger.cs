@@ -53,13 +53,9 @@ namespace TextLogger
             switch (counter % 8)
             {
                 case 0: Console.Write("/"); break;
-                case 1: Console.Write("/"); break;
-                case 2: Console.Write("-"); break;
-                case 3: Console.Write("-"); break;
-                case 4: Console.Write("\\"); break;
-                case 5: Console.Write("\\"); break;
-                case 6: Console.Write("|"); break;
-                case 7: Console.Write("|"); break;
+                case 1: Console.Write("-"); break;
+                case 2: Console.Write("\\"); break;
+                case 3: Console.Write("|"); break;
             }
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
         }
