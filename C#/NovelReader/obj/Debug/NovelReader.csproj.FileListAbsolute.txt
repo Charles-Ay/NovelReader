@@ -52,3 +52,7 @@ C:\Projects\other\NovelReader\C#\NovelReader\bin\Debug\WebRetriver.pdb
 C:\Projects\other\NovelReader\C#\NovelReader\bin\Debug\HtmlAgilityPack.pdb
 C:\Projects\other\NovelReader\C#\NovelReader\bin\Debug\HtmlAgilityPack.xml
 C:\Projects\other\NovelReader\C#\NovelReader\obj\Debug\NovelReader.csproj.CopyComplete
+C:\Projects\other\NovelReader\C#\NovelReader\bin\Debug\NovelReader.exe.manifest
+C:\Projects\other\NovelReader\C#\NovelReader\bin\Debug\NovelReader.application
+C:\Projects\other\NovelReader\C#\NovelReader\obj\Debug\NovelReader.exe.manifest
+C:\Projects\other\NovelReader\C#\NovelReader\obj\Debug\NovelReader.application
