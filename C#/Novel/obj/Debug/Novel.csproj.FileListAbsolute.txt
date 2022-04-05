@@ -3,3 +3,9 @@ C:\Projects\other\Novel\NovelReader\C#\Novel\bin\Debug\Novel.pdb
 C:\Projects\other\Novel\NovelReader\C#\Novel\obj\Debug\Novel.csproj.CoreCompileInputs.cache
 C:\Projects\other\Novel\NovelReader\C#\Novel\obj\Debug\Novel.dll
 C:\Projects\other\Novel\NovelReader\C#\Novel\obj\Debug\Novel.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\bin\Debug\Novel.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\bin\Debug\Novel.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\Novel.csproj.AssemblyReference.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\Novel.csproj.CoreCompileInputs.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\Novel.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\Novel\obj\Debug\Novel.pdb

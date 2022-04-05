@@ -7,3 +7,15 @@ C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj
 C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.CopyComplete
 C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.dll
 C:\Projects\other\Novel\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\WebRetriver.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\WebRetriver.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\HtmlAgilityPack.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\Logger.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\Logger.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\HtmlAgilityPack.xml
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.AssemblyReference.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.CoreCompileInputs.cache
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\obj\Debug\WebRetriever.csproj.CopyComplete
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.pdb

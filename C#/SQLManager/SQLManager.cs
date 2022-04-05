@@ -27,7 +27,7 @@ namespace SQLManager
 
         ~SQLManager()
         {
-            cnn.Close();
+            //if(cnn.State == System.Data.ConnectionState.Open)cnn.Close();
         }
 
         //void initNovles()
