@@ -76,7 +76,7 @@ namespace SQLManager
         }
 
 
-        public List<Novel.Novel> GetNovelChapters(string name, string source)
+        public List<Novel.Novel> GetNovelChapters(string name, string source, int chapters)
         {
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
@@ -86,7 +86,7 @@ namespace SQLManager
                 SqlDataReader reader;
                 string sql;
 
-                sql = $"SELECT * FROM Novels WHERE Name = \'{name}\' and Source = \'{source}\' ORDER BY CHAPTER";
+                sql = $"SELECT * FROM Novels WHERE Name = '{name}' and Source = '{source}' and Chapter <= {chapters} ORDER BY CHAPTER";
                 command = new SqlCommand(sql, cnn);
 
                 reader = command.ExecuteReader();

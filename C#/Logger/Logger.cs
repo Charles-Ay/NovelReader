@@ -50,7 +50,7 @@ namespace TextLogger
         public void Turn()
         {
             counter++;
-            switch (counter % 8)
+            switch (counter % 4)
             {
                 case 0: Console.Write("/"); break;
                 case 1: Console.Write("-"); break;

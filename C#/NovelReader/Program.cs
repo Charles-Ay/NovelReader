@@ -12,7 +12,7 @@ namespace NovelReader
             int maxChapter = 0;
             try
             {
-                Console.WriteLine("Please note that currently supported sites are: WuxiaWorld, FreeWebNovel");
+                Console.WriteLine("Please note that currently supported sites are: WuxiaWorld (SLOW RQUESTS: WORK IN PROGRESS), FreeWebNovel");
                 Console.Write("Enter novel name: ");
                 name = Console.ReadLine();
                 Console.Write("Enter last chapter to download: ");
@@ -34,7 +34,7 @@ namespace NovelReader
 
                 Novel.Novel novel = new Novel.Novel(name, maxChapter, link, source);
                 int retrivedAmt = parser.Fetch(novel);
-                Console.WriteLine($"{retrivedAmt} of {novel.name} have been retrived");
+                Console.WriteLine($"{retrivedAmt}/{maxChapter} chapters of {novel.name} have been retrived");
             }
             catch (ArithmeticException e)
             {

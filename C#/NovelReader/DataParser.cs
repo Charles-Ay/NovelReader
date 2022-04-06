@@ -26,7 +26,7 @@ namespace NovelReader
         {
             Scrapper retriever = new Scrapper();
             SQLManager.InsertChaptersWithLinks(novel);
-            List<Novel.Novel> novels = SQLManager.GetNovelChapters(novel.name, novel.source);
+            List<Novel.Novel> novels = SQLManager.GetNovelChapters(novel.name, novel.source, novel.totalChapters);
             return retriever.Scrape(novels, workingDir);
         }
 
