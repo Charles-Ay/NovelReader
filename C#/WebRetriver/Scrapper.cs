@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using TextLogger;
+using NovelReader.TextLogger;
 using HtmlAgilityPack;
-using Novel;
-using System.Text.RegularExpressions;
 using System.Diagnostics;
+using static NovelReader.WebRetriever.Sources;
 
-namespace WebRetriever
+namespace NovelReader.WebRetriever
 {
     public class Scrapper
     {
-        private string novelText;
+        protected string novelText;
         public int Scrape(List<Novel.Novel> novels, string workingDir)
         {
             //check if link is a valid html source
@@ -32,9 +31,13 @@ namespace WebRetriever
                     Console.WriteLine($"Retriving - {novel.name} chapter {novel.totalChapters}...");
 
                     var html = GetSite(novel.initalLink);
-                    if (novel.initalLink.Contains("freewebnovel")) returnedValue = FreeWebNovelParse(html);
-                    else if (novel.initalLink.Contains("comrademao")) returnedValue = ComrademaoParse(html);
+                    if (novel.initalLink.Contains("freewebnovel")) returnedValue = FreeWebNovelParse(html, out novelText);
+                    else if (novel.initalLink.Contains("comrademao")) returnedValue = ComrademaoParse(html, out novelText);
 
+                    if(novelText == "")
+                    {
+                        //throw some internal error
+                    }
                     if (returnedValue == false)
                     {
                         throw new InvalidOperationException();
@@ -75,57 +78,7 @@ namespace WebRetriever
             return html;
         }
 
-        private bool FreeWebNovelParse(HtmlDocument html)
-        {
-            if (html.DocumentNode != null)
-            {
-                try
-                {
-                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//h1[@class='tit']"))
-                    {
-                        novelText = node.InnerText;
-                    }
 
-                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@class='txt ']"))
-                    {
-                        novelText = node.InnerText;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Logger.writeToLog($"HTML ERROR - Line:{Logger.GetLineNumber(e)} -- {e.Message}");
-                    return false;
-                }
-            }
-            else return false;
-            return true;
-        }
-
-        private bool ComrademaoParse(HtmlDocument html)
-        {
-            if (html.DocumentNode != null)
-            {
-                try
-                {
-                    //foreach (HtmlNode node in html.DocumentNode.SelectNodes("//h1[@class='tit']"))
-                    //{
-                    //    novelText = node.InnerText;
-                    //}
-
-                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@id='content']"))
-                    {
-                        novelText = node.InnerText;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Logger.writeToLog($"HTML ERROR - Line:{Logger.GetLineNumber(e)} -- {e.Message}");
-                    return false;
-                }
-            }
-            else return false;
-            return true;
-        }
 
 
         /// <summary>

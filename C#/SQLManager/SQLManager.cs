@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using TextLogger;
+using NovelReader.Novel;
+using NovelReader.TextLogger;
 
 namespace SQLManager
 {
@@ -38,7 +39,7 @@ namespace SQLManager
         //}
 
 
-        public void InsertChaptersWithLinks(Novel.Novel novel)
+        public void InsertChaptersWithLinks(Novel novel)
         {
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
@@ -76,12 +77,12 @@ namespace SQLManager
         }
 
 
-        public List<Novel.Novel> GetNovelChapters(string name, string source, int chapters)
+        public List<Novel> GetNovelChapters(string name, string source, int chapters)
         {
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
                 cnn.Open();
-                List<Novel.Novel> novels = new List<Novel.Novel>();
+                List<Novel> novels = new List<Novel>();
                 SqlCommand command;
                 SqlDataReader reader;
                 string sql;
@@ -95,7 +96,7 @@ namespace SQLManager
                 {
                     int chapter = (int)reader.GetValue(1);
                     string link = (string)reader.GetValue(2);
-                    Novel.Novel novel = new Novel.Novel(name, chapter, link, source);
+                    Novel novel = new Novel(name, chapter, link, source);
                     novels.Add(novel);
                 }
                 return novels;

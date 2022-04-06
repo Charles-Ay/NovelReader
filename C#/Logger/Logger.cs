@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace TextLogger
+namespace NovelReader.TextLogger
 {
     public class Logger
     {
@@ -11,15 +11,17 @@ namespace TextLogger
             {"freewebnovel", "FreeWebNovel"}, /*{"novelcool", "NovelCool"},*/ {"comrademao", "Comrademao"}
         };
 
-        private static string NAME = Path.Combine(Directory.GetCurrentDirectory(), "Logs.log");
+        private static string LogDir = Path.Combine(Directory.GetCurrentDirectory(), $@"Logs");
+        private static string NAME = Path.Combine(LogDir, $"Logs_{DateTime.Now.ToFileTime()}.log");
         private static Logger TextLogger = new Logger();
 
         private Logger()
         {
-            if (File.Exists(NAME))
-            {
-                File.Delete(NAME);
-            }
+            //if (File.Exists(NAME))
+            //{
+            //    File.Delete(NAME);
+            //}
+            if (!Directory.Exists(LogDir)) Directory.CreateDirectory(LogDir);
         }
 
         public static void writeToLog(string text)

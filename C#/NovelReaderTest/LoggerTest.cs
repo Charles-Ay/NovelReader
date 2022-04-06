@@ -1,7 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using TextLogger;
+using NovelReader.TextLogger;
+using Xunit.Sdk;
 
 namespace NovelReaderTest
 {

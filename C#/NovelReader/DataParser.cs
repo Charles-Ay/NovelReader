@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using WebRetriever;
-using TextLogger;
+using NovelReader.WebRetriever;
 
 namespace NovelReader
 {

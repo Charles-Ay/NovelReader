@@ -1,4 +1,4 @@
-﻿namespace Novel
+﻿namespace NovelReader.Novel
 {
     public class Novel
     {

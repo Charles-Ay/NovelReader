@@ -1,0 +1,5 @@
+drop novel
+create sources
+insert sources
+create novel
+insert proc
