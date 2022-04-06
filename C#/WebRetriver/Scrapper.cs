@@ -33,7 +33,7 @@ namespace WebRetriever
 
                     var html = GetSite(novel.initalLink);
                     if (novel.initalLink.Contains("freewebnovel")) returnedValue = FreeWebNovelParse(html);
-                    else if (novel.initalLink.Contains("novelcool")) returnedValue = NovelCoolParse(html);
+                    else if (novel.initalLink.Contains("comrademao")) returnedValue = ComrademaoParse(html);
 
                     if (returnedValue == false)
                     {
@@ -101,7 +101,7 @@ namespace WebRetriever
             return true;
         }
 
-        private bool NovelCoolParse(HtmlDocument html)
+        private bool ComrademaoParse(HtmlDocument html)
         {
             if (html.DocumentNode != null)
             {
@@ -112,7 +112,7 @@ namespace WebRetriever
                     //    novelText = node.InnerText;
                     //}
 
-                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@id='content ']"))
+                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@id='content']"))
                     {
                         novelText = node.InnerText;
                     }

@@ -8,7 +8,7 @@ namespace TextLogger
     {
         public static Dictionary<string, string> htmlSupportedWebsites = new Dictionary<string, string>()
         {
-            {"freewebnovel", "FreeWebNovel"}, {"novelcool", "NovelCool"}, {"comrademao", "Comrademao"}
+            {"freewebnovel", "FreeWebNovel"}, /*{"novelcool", "NovelCool"},*/ {"comrademao", "Comrademao"}
         };
 
         private static string NAME = Path.Combine(Directory.GetCurrentDirectory(), "Logs.log");

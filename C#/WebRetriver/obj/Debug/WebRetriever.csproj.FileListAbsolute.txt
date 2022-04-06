@@ -33,3 +33,5 @@ C:\Projects\other\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.dll
 C:\Projects\other\NovelReader\C#\WebRetriver\obj\Debug\WebRetriver.pdb
 C:\Projects\other\NovelReader\C#\WebRetriver\bin\Debug\Novel.dll
 C:\Projects\other\NovelReader\C#\WebRetriver\bin\Debug\Novel.pdb
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\Novel.dll
+C:\Users\charl\Documents\Programming(on-d)\C#\NovelReader\C#\WebRetriver\bin\Debug\Novel.pdb
