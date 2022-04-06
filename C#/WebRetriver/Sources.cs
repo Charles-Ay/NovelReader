@@ -40,7 +40,7 @@ namespace NovelReader.WebRetriever
             {
                 try
                 {
-                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@class='update_item list_category']"))
+                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@class='text-left']"))
                     {
                         novelText = node.InnerText;
                     }

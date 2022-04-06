@@ -78,9 +78,6 @@ namespace NovelReader.WebRetriever
             return html;
         }
 
-
-
-
         /// <summary>
         /// run the python script for getting website data
         /// </summary>

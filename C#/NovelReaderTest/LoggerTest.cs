@@ -2,7 +2,6 @@
 using System;
 using System.IO;
 using NovelReader.TextLogger;
-using Xunit.Sdk;
 
 namespace NovelReaderTest
 {

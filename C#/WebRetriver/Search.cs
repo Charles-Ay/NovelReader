@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using NovelReader.TextLogger;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace NovelReader.WebRetriever
 {
@@ -164,16 +165,21 @@ namespace NovelReader.WebRetriever
                         sources.Add(output);
                     }
                     var tmpNode = html.DocumentNode.SelectSingleNode("//div[@class='nav-previous float-left']");
-                    tmpNode = tmpNode.SelectSingleNode("a");
-                    nextPage= tmpNode.GetAttributeValue("href", string.Empty);
-                    if (nextPage == string.Empty)
+
+                    if (tmpNode != null)
                     {
-                        nextPage = "DEAD";
+                        tmpNode = tmpNode.SelectSingleNode("a");
+                        nextPage = tmpNode.GetAttributeValue("href", string.Empty);
+
+                        //links for the page are weird, need to do some magic
+                        int index = nextPage.IndexOf("wp-manga") + "wp-manga".Length;
+                        if (index >= 0) nextPage = nextPage.Substring(0, index);
+                        nextPage = nextPage.Replace("&#038;", "&");
+                        html = Request(nextPage);
+                        tmpNode = tmpNode.SelectSingleNode("a");
                     }
-                    html = Request(nextPage);
+                    else nextPage = "DEAD";
                 }
-
-
 
                 if (name.Count != numres || link.Count != numres || sources.Count != numres)
                 {

@@ -5,4 +5,4 @@ use NovelReader
 INSERT INTO Sources(Name) 
 VALUES ('WuxiaWorld'),
 	   ('Comrademao'),
-	   ('FreeWebNovel')
+	   ('NovelTrench')
