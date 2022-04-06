@@ -4,7 +4,8 @@
 /build/
 /C#/NovelReader/bin/Debug/Books/
 /C#/NovelReader/bin/Release/Books/
-/MainProgram/pub/Books
+/MainProgram/Books
+/MainProgram/Logs.log
 *.suo
 *.user
 _ReSharper.*/
