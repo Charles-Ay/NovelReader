@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TextLogger;
 
 namespace NovelReader
@@ -7,7 +8,7 @@ namespace NovelReader
     {
         static void Main(string[] args)
         {
-            DataParser parser = new DataParser();
+        DataParser parser = new DataParser();
             string name="", link="", source="";
             int maxChapter = 0;
             try
@@ -20,7 +21,15 @@ namespace NovelReader
                 Console.Write("Enter enter novel begining link: ");
                 link = Console.ReadLine();
 
-                source = getSupportedSource(link);
+                foreach(KeyValuePair<string, string> pair in Logger.htmlSupportedWebsites)
+                {
+                    if (link.Contains(pair.Key))
+                    {
+                        source = pair.Value;
+                        break;
+                    }
+                }
+
                 if(source == "")
                 {
                     Console.Write("Unsupported source detected please enter source name: ");
@@ -50,13 +59,6 @@ namespace NovelReader
             //Novel.Novel novel = new Novel.Novel("Overgeared", 1601, "https://freewebnovel.com/overgeared-novel/chapter-1.html", "FreeWebNovel");
             //int retrivedAmt = da.Fetch(novel);
             //Console.WriteLine($"{retrivedAmt} of {novel.name} have been retrived");
-        }
-
-        private static string getSupportedSource(string url)
-        {
-            if (url.Contains("freewebnovel")) return "FreeWebNovel";
-            else if (url.Contains("wuxiaworld")) return "WuxiaWorld";
-            else return "";
         }
     }
 }

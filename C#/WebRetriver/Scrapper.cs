@@ -16,8 +16,8 @@ namespace WebRetriever
         private string novelText;
         public int Scrape(List<Novel.Novel> novels, string workingDir)
         {
-
-            if (!novels[0].initalLink.Contains(".html")) return doPython(novels, workingDir);
+            //check if link is a valid html source
+            if (novels[0].source == "WuxiaWorld") return doPython(novels, workingDir);
             else
             {
                 bool returnedValue = false;
@@ -32,7 +32,8 @@ namespace WebRetriever
                     Console.WriteLine($"Retriving - {novel.name} chapter {novel.totalChapters}...");
 
                     var html = GetSite(novel.initalLink);
-                    if (novel.initalLink.Contains("freewebnovel")) returnedValue = FreeWebNovel(html);
+                    if (novel.initalLink.Contains("freewebnovel")) returnedValue = FreeWebNovelParse(html);
+                    else if (novel.initalLink.Contains("novelcool")) returnedValue = NovelCoolParse(html);
 
                     if (returnedValue == false)
                     {
@@ -74,7 +75,7 @@ namespace WebRetriever
             return html;
         }
 
-        private bool FreeWebNovel(HtmlDocument html)
+        private bool FreeWebNovelParse(HtmlDocument html)
         {
             if (html.DocumentNode != null)
             {
@@ -99,6 +100,33 @@ namespace WebRetriever
             else return false;
             return true;
         }
+
+        private bool NovelCoolParse(HtmlDocument html)
+        {
+            if (html.DocumentNode != null)
+            {
+                try
+                {
+                    //foreach (HtmlNode node in html.DocumentNode.SelectNodes("//h1[@class='tit']"))
+                    //{
+                    //    novelText = node.InnerText;
+                    //}
+
+                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@id='content ']"))
+                    {
+                        novelText = node.InnerText;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Logger.writeToLog($"HTML ERROR - Line:{Logger.GetLineNumber(e)} -- {e.Message}");
+                    return false;
+                }
+            }
+            else return false;
+            return true;
+        }
+
 
         /// <summary>
         /// run the python script for getting website data

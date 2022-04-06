@@ -12,7 +12,7 @@ namespace NovelReaderTest
         public void TestLog()
         {
             Logger.writeToLog("THIS IS A LOG FILE BEING USED FOR TESTING");
-            Assert.IsTrue(File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Logs.txt")));
+            Assert.IsTrue(File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Logs.log")));
         }
     }
 }
