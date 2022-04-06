@@ -2,7 +2,8 @@
 *.dll
 *.pdb
 /build/
-/books/
+/C#/NovelReader/bin/Debug/Books/
+/C#/NovelReader/bin/Release/Books/
 *.suo
 *.user
 _ReSharper.*/
