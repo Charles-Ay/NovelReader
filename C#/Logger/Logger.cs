@@ -8,7 +8,7 @@ namespace NovelReader.TextLogger
     {
         public static Dictionary<string, string> htmlSupportedWebsites = new Dictionary<string, string>()
         {
-            {"freewebnovel", "FreeWebNovel"}, /*{"novelcool", "NovelCool"},*/ {"comrademao", "Comrademao"}
+            {"freewebnovel", "FreeWebNovel"}, {"noveltrench", "NovelTrench"}
         };
 
         private static string LogDir = Path.Combine(Directory.GetCurrentDirectory(), $@"Logs");

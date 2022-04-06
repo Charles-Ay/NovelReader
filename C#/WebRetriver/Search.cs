@@ -11,11 +11,15 @@ namespace NovelReader.WebRetriever
     public class Search
     {
         public List<SearchType> results = new List<SearchType>();
+        /// <summary>
+        /// number of results fetched
+        /// </summary>
         int numres;
         public bool SearchNovel(int startChapter, string novelname)
         {
             Console.WriteLine($"Searching for {novelname}...");
-            bool result = SearchFreeWebNovel(startChapter, novelname);
+            //bool result = SearchFreeWebNovel(startChapter, novelname);
+            bool result = SearchNovelTrench(startChapter, novelname);
             return result;
         }
 
@@ -50,13 +54,11 @@ namespace NovelReader.WebRetriever
                 }
             }
 
-            string webtext;
             if (html.DocumentNode != null)
             {
                 List<string> name = new List<string>();
                 List<string> link = new List<string>();
                 List<string> sources = new List<string>();
-
 
                 //get total amount of results
                 try
@@ -65,10 +67,8 @@ namespace NovelReader.WebRetriever
                 }
                 catch(NullReferenceException e)
                 {
-                    Logger.writeToLog("LOG TEST FRO NULLREF");
+                    Logger.writeToLog("LOG TEST FOR NULL REF");
                 }
-
-
 
                 foreach (HtmlNode node in html.DocumentNode.SelectNodes("//h3[@class='tit']"))
                 {
@@ -112,6 +112,86 @@ namespace NovelReader.WebRetriever
             }
             return true;
         }
+
+
+        private bool SearchNovelTrench(int startChapter, string novelname)
+        {
+            string srchqry = novelname.Replace(" ", "+");
+            var url = $"https://noveltrench.com/?s={srchqry}&post_type=wp-manga&op=&author=&artist=&release=&adult=";
+
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+
+            HtmlAgilityPack.HtmlDocument html = new HtmlDocument();
+            html.OptionFixNestedTags = true;
+
+            var response = httpRequest.GetResponse();
+            if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
+            {
+                using (Stream dataStream = response.GetResponseStream())
+                {
+                    // Open the stream using a StreamReader for easy access.
+                    StreamReader reader = new StreamReader(dataStream);
+                    // Read the content.
+                    html.LoadHtml(reader.ReadToEnd());
+                }
+            }
+
+            if (html.DocumentNode != null)
+            {
+                List<string> name = new List<string>();
+                List<string> link = new List<string>();
+                List<string> sources = new List<string>();
+
+                //get total amount of results
+
+
+                Console.WriteLine(html.DocumentNode.SelectSingleNode("//i[@class='icon ion-ios-star']").InnerText);
+                try
+                {
+                    numres = Int32.Parse(html.DocumentNode.SelectSingleNode("//i[@class='icon ion-ios-star']").InnerText);
+                }
+                catch (NullReferenceException e)
+                {
+                    Logger.writeToLog("LOG TEST FOR NULL REF");
+                }
+
+                foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@class='tab-thumb c-image-hover']"))
+                {
+                    name.Add(node.GetAttributeValue("title", string.Empty));
+                    var newNodes = node.SelectNodes("a");
+                    foreach (var innerNode in newNodes)
+                    {
+                        string tmp = innerNode.GetAttributeValue("href", string.Empty);
+                        if (tmp != string.Empty)
+                        {
+                            tmp +=$"chapter-{startChapter}";
+                            link.Add(tmp);
+                        }
+                        else
+                        {
+                            //throw some error or return false
+                        }
+                    }
+                    string output;
+                    Logger.htmlSupportedWebsites.TryGetValue("noveltrench", out output);
+                    sources.Add(output);
+                }
+
+                if (name.Count != numres || link.Count != numres || sources.Count != numres)
+                {
+                    //throw error
+                }
+                for (int i = 0; i < numres; ++i)
+                {
+                    results.Add(new SearchType(name[i], link[i], sources[i]));
+                }
+            }
+            else
+            {
+                //ask for new input
+            }
+            return true;
+        }
     }
 
     public class SearchType
@@ -127,3 +207,5 @@ namespace NovelReader.WebRetriever
         public string source { get; private set; }
     }
 }
+
+

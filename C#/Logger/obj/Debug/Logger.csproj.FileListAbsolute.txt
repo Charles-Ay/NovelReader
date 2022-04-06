@@ -14,3 +14,4 @@ C:\Projects\other\NovelReader\C#\Logger\bin\Debug\Logger.pdb
 C:\Projects\other\NovelReader\C#\Logger\obj\Debug\Logger.csproj.CoreCompileInputs.cache
 C:\Projects\other\NovelReader\C#\Logger\obj\Debug\Logger.dll
 C:\Projects\other\NovelReader\C#\Logger\obj\Debug\Logger.pdb
+C:\Projects\other\NovelReader\C#\Logger\obj\Debug\Logger.csproj.AssemblyReference.cache

@@ -32,9 +32,9 @@ namespace NovelReader.WebRetriever
 
                     var html = GetSite(novel.initalLink);
                     if (novel.initalLink.Contains("freewebnovel")) returnedValue = FreeWebNovelParse(html, out novelText);
-                    else if (novel.initalLink.Contains("comrademao")) returnedValue = ComrademaoParse(html, out novelText);
+                    else if (novel.initalLink.Contains("noveltrench")) returnedValue = NovelTrenchParse(html, out novelText);
 
-                    if(novelText == "")
+                    if (novelText == "")
                     {
                         //throw some internal error
                     }

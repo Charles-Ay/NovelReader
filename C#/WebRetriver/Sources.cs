@@ -33,19 +33,14 @@ namespace NovelReader.WebRetriever
             return true;
         }
 
-        public static bool ComrademaoParse(HtmlDocument html, out string novelText)
+        public static bool NovelTrenchParse(HtmlDocument html, out string novelText)
         {
             novelText = "";
             if (html.DocumentNode != null)
             {
                 try
                 {
-                    //foreach (HtmlNode node in html.DocumentNode.SelectNodes("//h1[@class='tit']"))
-                    //{
-                    //    novelText = node.InnerText;
-                    //}
-
-                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@id='content']"))
+                    foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@class='update_item list_category']"))
                     {
                         novelText = node.InnerText;
                     }
