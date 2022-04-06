@@ -2,6 +2,7 @@
 *.dll
 *.pdb
 /build/
+/books/
 *.suo
 *.user
 _ReSharper.*/
