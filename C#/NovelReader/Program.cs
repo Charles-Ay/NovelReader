@@ -7,7 +7,7 @@ namespace NovelReader
     {
         static void Main(string[] args)
         {
-            //NOTE: DONT USE WUXIA WORLD/doPython DUE TO SLOW AND EXPENSIVE REQUESTS~Seleniumm Web Driver
+            //NOTE: WUXIA WORLD/doPython has been disabled DUE TO SLOW AND EXPENSIVE REQUESTS~Seleniumm Web Driver
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Novel Reader - v1");
             Console.ForegroundColor = ConsoleColor.White;

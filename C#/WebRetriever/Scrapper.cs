@@ -17,7 +17,10 @@ namespace NovelReader.WebRetriever
         public int Scrape(List<Novel.Novel> novels, string workingDir)
         {
             //check if link is a valid html source
-            if (novels[0].source == "WuxiaWorld") return doPython(novels, workingDir);
+
+            //WUXIA IN DEV
+            //if (novels[0].source == "WuxiaWorld") return doPython(novels, workingDir);
+            if(1 == 2) { }
             else
             {
                 bool returnedValue = false;
@@ -85,6 +88,7 @@ namespace NovelReader.WebRetriever
 
         /// <summary>
         /// run the python script for getting website data
+        /// DISABLED FOR NOW~PYTHON EXE FILE HAS NOT BE INCLUDED IN GIT
         /// </summary>
         public int doPython(List<Novel.Novel> novels, string workingDir)
         {
