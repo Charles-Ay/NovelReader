@@ -13,7 +13,7 @@ namespace NovelReader.UI
             Console.WriteLine();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Useage: [Novel Name], [Chapter range(inclusive)]");
+            Console.WriteLine("Useage: NovelReader [OPTIONS] [ARGS]");
             Console.WriteLine("Optional: [Source], [Dev_Mode]");
             Console.WriteLine("Dev: There are two [Deb_Mode]: -d and -d2. -d uses CLI while -d2 does not");
             Console.Write("Sources: ");
@@ -27,7 +27,7 @@ namespace NovelReader.UI
             Console.Write(sites);
 
             Console.WriteLine();
-            Console.WriteLine("Example input: \"Martial World\" 1-10");
+            Console.WriteLine("Example input: NovelReader \"Martial World\" 1-10");
             Console.WriteLine("Example input(with optional params): -d \"Martial World\" 8 freewebnovel");
 
             Console.ForegroundColor = ConsoleColor.White;
