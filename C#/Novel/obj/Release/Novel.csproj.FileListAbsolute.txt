@@ -1,6 +1,0 @@
-C:\Projects\other\NovelReader\C#\Novel\bin\Release\Novel.dll
-C:\Projects\other\NovelReader\C#\Novel\bin\Release\Novel.pdb
-C:\Projects\other\NovelReader\C#\Novel\obj\Release\Novel.csproj.AssemblyReference.cache
-C:\Projects\other\NovelReader\C#\Novel\obj\Release\Novel.csproj.CoreCompileInputs.cache
-C:\Projects\other\NovelReader\C#\Novel\obj\Release\Novel.dll
-C:\Projects\other\NovelReader\C#\Novel\obj\Release\Novel.pdb

@@ -1,6 +1,0 @@
-C:\Projects\other\NovelReader\C#\Logger\bin\Release\Logger.dll
-C:\Projects\other\NovelReader\C#\Logger\bin\Release\Logger.pdb
-C:\Projects\other\NovelReader\C#\Logger\obj\Release\Logger.csproj.AssemblyReference.cache
-C:\Projects\other\NovelReader\C#\Logger\obj\Release\Logger.csproj.CoreCompileInputs.cache
-C:\Projects\other\NovelReader\C#\Logger\obj\Release\Logger.dll
-C:\Projects\other\NovelReader\C#\Logger\obj\Release\Logger.pdb
