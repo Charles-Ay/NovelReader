@@ -8,12 +8,6 @@
 /C#/NovelReader/bin/Release/Books
 /C#/NovelReader/bin/Release/Books/Logs
 
-/C#/NovelReader/obj
-/C#/Logger/obj
-/C#/Novel/obj
-/C#/NovelReaderTest/obj
-/C#/SQLManager/obj
-/C#/WebRetriever/obj
 /IN_DEVELOPMENT
 
 /Python/
@@ -27,3 +21,5 @@ _ReSharper.*/
 *.opensdf
 *.tlog
 *.log
+*.cache
+*.CopyComplete

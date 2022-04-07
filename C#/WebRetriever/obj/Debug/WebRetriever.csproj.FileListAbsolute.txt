@@ -1,0 +1,14 @@
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\WebRetriver.dll
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\WebRetriver.pdb
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\HtmlAgilityPack.dll
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\Logger.dll
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\Novel.dll
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\Logger.pdb
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\Novel.pdb
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\HtmlAgilityPack.pdb
+C:\Projects\other\NovelReader\C#\WebRetriever\bin\Debug\HtmlAgilityPack.xml
+C:\Projects\other\NovelReader\C#\WebRetriever\obj\Debug\WebRetriever.csproj.AssemblyReference.cache
+C:\Projects\other\NovelReader\C#\WebRetriever\obj\Debug\WebRetriever.csproj.CoreCompileInputs.cache
+C:\Projects\other\NovelReader\C#\WebRetriever\obj\Debug\WebRetriever.csproj.CopyComplete
+C:\Projects\other\NovelReader\C#\WebRetriever\obj\Debug\WebRetriver.dll
+C:\Projects\other\NovelReader\C#\WebRetriever\obj\Debug\WebRetriver.pdb
