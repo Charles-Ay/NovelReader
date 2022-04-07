@@ -3,13 +3,14 @@ using NovelReader.UI;
 
 namespace NovelReader
 {
+    //This is where the program starts
     class Program
     {
         static void Main(string[] args)
         {
             //NOTE: WUXIA WORLD/doPython has been disabled DUE TO SLOW AND EXPENSIVE REQUESTS~Seleniumm Web Driver
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Novel Reader - v1");
+            Console.WriteLine("NovelReader - V1");
             Console.ForegroundColor = ConsoleColor.White;
 
             DataParser parser = new DataParser();
