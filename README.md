@@ -8,8 +8,6 @@
 
 To use NovelReader. Download the [**NovelReader.exe**](https://github.com/Charles-Ay/NovelReader/tree/main/MainProgram). You can also clone the [**Project**](https://github.com/Charles-Ay/NovelReader) -> build -> create a single exe using the [**ILMergeGUI.exe**](https://github.com/Charles-Ay/NovelReader/tree/main/ILMergeGUILatest) and add the build .exe file and .dlls
 
-**Support:** Python 3.6 and higher
-
 ### Installing [`mpv`](https://github.com/mpv-player/mpv/)
 
 #### Windows:
@@ -22,14 +20,14 @@ Planned for the future or if anyone else wants to create a linux version.
 
 #### Mac:
 
-Gross. JKJK. I'm too poor to affored one so can't make a compatable version :(
+Gross. jkjk. I'm too poor to afford one so can't make a compatable version :(
 
 ### Core features
 
 - Took longer than I thought it would
 - Scrapes the Sources for novel links and request to raw HTML, So its efficient ig?? 🤷
 - Doesn't use any heavy dependencies such as Selenium or Javascript Evaluators.
-- Mostly uses C# standared libs so pretty lightweight.
+- Mostly uses C# standard libs so pretty lightweight.
 - Integrates HtmlAgilityPack for efficent and effective parsing.
 
 ### Usage
@@ -60,6 +58,9 @@ Download **Peerless Martial God**'s chapter 8 using [**NoveTrench.com**](https:/
   NovelReader -d "Peerless Martial God" 8 noveltrench
   ```
 
+### Tutorial
+- https://www.youtube.com/watch?v=xvFZjo5PgG0
+
 ### Supported Sites
 
 | Website                                      | Source Prefix       |
@@ -67,9 +68,9 @@ Download **Peerless Martial God**'s chapter 8 using [**NoveTrench.com**](https:/
 | [FreeWebNovel.com](https://FreeWebNovel.com/)| `allanime`          |
 | [NoveTrench.com](https://noveltrench.com/)   |`noveltrench`        |
 
-### More sites?
+### Want More sites?
 
-Yeah, ill add some more when I get around to it. You can raise a issue if you really want a specific one. Please try to make sure that the websites you request meet mostof the following criteria(its a headache to work with sites that dont and I don't want to add a webdriver as that add lots of overhead)
+Yeah, ill add some more when I get around to it. You can raise a issue if you really want a specific one. Please try to make sure that the websites you request meets most of the following criteria (it's a headache to work with sites that don't and I don't want to add a webdriver as that add lots of overhead)
 - Supports HTTP Request and doesnt hide the content inside obscure Java-Script **Cough, Cough** WuxiaWorld
 - Should have some sort of search function(like a search bar)
 - The chapters should have some logical ordering/naming. Not something like https://trashnovelsite.com/novel/32113/chapter-3. This makes it so much harder to get the right novel
