@@ -63,8 +63,8 @@ Download **Peerless Martial God**'s chapter 8 using [**NoveTrench.com**](https:/
 
 | Website                                      | Source Prefix       |
 | :------------------------------------------: | :-----------------: |
-| [FreeWebNovel.com](https://FreeWebNovel.com/)| `allanime`          |
-| [NoveTrench.com](https://noveltrench.com/)   |`noveltrench`        |
+| [FreeWebNovel.com](https://FreeWebNovel.com/)| `freewebnovel`          |
+| [NoveTrench.com](https://noveltrench.com/)   | `noveltrench`        |
 
 ### Want More sites?
 
