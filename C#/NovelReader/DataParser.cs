@@ -21,11 +21,15 @@ namespace NovelReader
         /// Class used to get data from website
         /// </summary>
         /// <param name="name"></param>
-        public int Fetch(Novel.Novel novel)
+        /// <param name="first">first chapter to download</param>
+        public int Fetch(Novel.Novel novel, int first)
         {
             Scrapper retriever = new Scrapper();
-            SQLManager.InsertChaptersWithLinks(novel);
-            List<Novel.Novel> novels = SQLManager.GetNovelChapters(novel.name, novel.source, novel.totalChapters);
+            Search search = new Search();
+            //SQLManager.SQLInsertChaptersWithLinks(novel);
+            //List<Novel.Novel> novels = SQLManager.SQLGetNovelChapters(novel.name, novel.source, novel.totalChapters);
+            List<Novel.Novel> novels = search.GetNovelChapters(novel, first);
+            
             return retriever.Scrape(novels, workingDir);
         }
 

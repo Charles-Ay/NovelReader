@@ -42,7 +42,7 @@ namespace NovelReader
             }
             var sRetType = search(name, first);
             if (sRetType == null) return 0;
-            return parser.Fetch(new Novel.Novel(sRetType.name, maxChapter, sRetType.link, sRetType.source));
+            return parser.Fetch(new Novel.Novel(sRetType.name, maxChapter, sRetType.link, sRetType.source), first);
         }
 
         //returs link we are using

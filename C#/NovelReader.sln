@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLManager", "SQLManager\SQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelReaderTest", "NovelReaderTest\NovelReaderTest.csproj", "{0FC82FEE-1A94-4C66-B3E2-49D6B9841D22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRetriever", "WebRetriver\WebRetriever.csproj", "{68EAEF8C-981A-426C-9E3D-B31B4453732C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRetriever", "WebRetriever\WebRetriever.csproj", "{68EAEF8C-981A-426C-9E3D-B31B4453732C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

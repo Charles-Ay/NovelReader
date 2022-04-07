@@ -20,8 +20,8 @@ namespace NovelReader.WebRetriever
         public bool SearchNovel(int startChapter, string novelname)
         {
             Console.WriteLine($"Searching for {novelname}...");
-            //bool result = SearchFreeWebNovel(startChapter, novelname);
-            bool result = SearchNovelTrench(startChapter, novelname);
+            bool result = SearchFreeWebNovel(startChapter, novelname);
+            if(result == false) SearchNovelTrench(startChapter, novelname);
             return result;
         }
 
@@ -217,6 +217,22 @@ namespace NovelReader.WebRetriever
                 }
             }
             return html;
+        }
+
+        public List<Novel.Novel> GetNovelChapters(Novel.Novel novel, int first)
+        {
+            List<Novel.Novel> novels = new List<Novel.Novel>();
+            for (int i = first; i <= novel.totalChapters; ++i)
+            {
+                //get current chapter link
+                //replace numbers with more than one digit with ""
+                string curchapter = Regex.Replace(novel.initalLink, "[0-9]{2,}", $"");
+                //replace remaing last digit
+                curchapter = Regex.Replace(curchapter, "[0-9]", $"{i}");
+
+                novels.Add(new Novel.Novel(novel.name, i, curchapter, novel.source));
+            }
+            return novels;
         }
     }
 

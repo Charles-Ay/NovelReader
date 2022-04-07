@@ -25,7 +25,7 @@ namespace SQLManager
         {
         }
 
-        public void InsertChaptersWithLinks(Novel novel)
+        public void SQLInsertChaptersWithLinks(Novel novel)
         {
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
@@ -57,7 +57,7 @@ namespace SQLManager
             }
         }
 
-        public List<Novel> GetNovelChapters(string name, string source, int chapters)
+        public List<Novel> SQLGetNovelChapters(string name, string source, int chapters)
         {
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
