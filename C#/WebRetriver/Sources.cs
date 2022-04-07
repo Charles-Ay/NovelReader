@@ -1,6 +1,8 @@
 ﻿using HtmlAgilityPack;
 using NovelReader.TextLogger;
 using System;
+using System.Text;
+using System.Web;
 
 namespace NovelReader.WebRetriever
 {
@@ -42,7 +44,7 @@ namespace NovelReader.WebRetriever
                 {
                     foreach (HtmlNode node in html.DocumentNode.SelectNodes("//div[@class='text-left']"))
                     {
-                        novelText = node.InnerText;
+                        novelText = HttpUtility.HtmlDecode(node.InnerText);
                     }
                 }
                 catch (Exception e)

@@ -7,6 +7,7 @@ using NovelReader.TextLogger;
 using HtmlAgilityPack;
 using System.Diagnostics;
 using static NovelReader.WebRetriever.Sources;
+using System.Web;
 
 namespace NovelReader.WebRetriever
 {
@@ -46,11 +47,14 @@ namespace NovelReader.WebRetriever
                     //note that total chapters becomes current chapter
                     string fileName = Path.Combine(workingDir, $"{novel.name} - Chapter {novel.totalChapters}.txt");
                     if (!File.Exists(fileName)) File.Create(fileName).Dispose();
-                    TextWriter writer = new StreamWriter(fileName, true);
-                    writer.WriteLine(novelText);
-                    writer.Close();
 
-                    //Thread.Sleep(System.TimeSpan.FromSeconds(5));
+                    //convoluted stream writitng due to Numeric character reference
+                    //https://en.wikipedia.org/wiki/Numeric_character_reference
+                    FileStream stream = new FileStream(fileName, FileMode.OpenOrCreate);
+                    StreamWriter streamWriter = new StreamWriter(stream);
+                    streamWriter.WriteLine(novelText);
+                    streamWriter.Close();
+                    stream.Close();
                     ++amount;
                 }
                 return amount;

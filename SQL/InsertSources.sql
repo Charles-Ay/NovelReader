@@ -4,5 +4,4 @@ use NovelReader
 --	truncate table Sources
 INSERT INTO Sources(Name) 
 VALUES ('WuxiaWorld'),
-	   ('Comrademao'),
 	   ('NovelTrench')

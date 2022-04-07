@@ -2,7 +2,11 @@
 *.dll
 *.pdb
 /build/
-/C#/NovelReader/bin/Debug/Books/
+/C#/NovelReader/bin/Debug
+/C#/Logger/bin/Debug
+/C#/Novel/bin/Debug
+/C#/NovelReaderTest/bin/Debug
+/C#/SQLManager/bin/Debug
 /C#/NovelReader/bin/Release/Books/
 /MainProgram/Books
 /MainProgram/Logs.log

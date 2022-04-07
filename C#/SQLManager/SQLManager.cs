@@ -13,31 +13,17 @@ namespace SQLManager
 
         //string to connect to db
         private const string connetionString = @"Data Source=localhost\CHARLES_SERVER;Initial Catalog=NovelReader;Integrated Security=True;";
-        //all the novels being grabed
-        //private static List<Novel.Novel> novels;
 
         /// <summary>
         /// initlize to sql and get the know novles
         /// </summary>
         public SQLManager()
         {
-            //initNovles();
         }
 
         ~SQLManager()
         {
         }
-
-        //void initNovles()
-        //{
-        //    if (novels == null)
-        //    {
-        //        novels = new List<Novel.Novel>();
-
-        //        Novel.Novel novel = new Novel.Novel("Overgeared", 1601, "https://www.wuxiaworld.com/novel/overgeared/og-chapter-1", "WuxiaWorld");
-        //    }
-        //}
-
 
         public void InsertChaptersWithLinks(Novel novel)
         {
@@ -70,12 +56,6 @@ namespace SQLManager
                 }
             }
         }
-
-        private void checkIfUpdated()
-        {
-
-        }
-
 
         public List<Novel> GetNovelChapters(string name, string source, int chapters)
         {
