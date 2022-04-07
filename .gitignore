@@ -3,21 +3,10 @@
 *.pdb
 /build/
 
-/C#/NovelReader/bin/Debug
-/C#/Logger/bin/Debug
-/C#/Novel/bin/Debug
-/C#/NovelReaderTest/bin/Debug
-/C#/SQLManager/bin/Debug
+/C#/NovelReader/bin/Debug/Books
+/C#/NovelReader/bin/Debug/Books/Logs
 /C#/NovelReader/bin/Release/Books
-/C#/WebRetriever/bin/Debug
-
-/C#/NovelReader/bin/Release
-/C#/Logger/bin/Release
-/C#/Novel/bin/Release
-/C#/NovelReaderTest/bin/Release
-/C#/SQLManager/bin/Release
-/C#/NovelReader/bin/Release/Books
-/C#/WebRetriever/bin/Release
+/C#/NovelReader/bin/Release/Books/Logs
 
 /C#/NovelReader/obj
 /C#/Logger/obj
