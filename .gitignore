@@ -8,12 +8,14 @@
 /C#/NovelReaderTest/bin/Debug
 /C#/SQLManager/bin/Debug
 /C#/NovelReader/bin/Release/Books/
+/C#/WebRetriever/bin/Debug
 
 /C#/NovelReader/obj/Debug
 /C#/Logger/obj/Debug
 /C#/Novel/obj/Debug
 /C#/NovelReaderTest/obj/Debug
 /C#/SQLManager/obj/Debug
+/C#/WebRetriever/obj/Debug
 
 /MainProgram/Books
 /MainProgram/Logs.log
