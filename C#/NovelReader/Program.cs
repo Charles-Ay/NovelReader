@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using NovelReader.WebRetriever;
+using NovelReader.UI;
 
 namespace NovelReader
 {
@@ -8,12 +7,25 @@ namespace NovelReader
     {
         static void Main(string[] args)
         {
-            //NOTE: DONT USE WUXIA WORLD DUE TO SLOW AND EXPENSIVE REQUESTS
-            Front userInter = new Front();
-            userInter.Init();
-            Console.WriteLine("Press Any Button To Exit...");
-            Console.ReadLine();
-            System.Environment.Exit(0);
+            //NOTE: DONT USE WUXIA WORLD/doPython DUE TO SLOW AND EXPENSIVE REQUESTS~Seleniumm Web Driver
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Novel Reader - v1");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            DataParser parser = new DataParser();
+            CLI cLI = new CLI();
+            FrontEnd userInter = new FrontEnd();
+            int returned = 0;
+
+            if (args[0] == "-d2") parser.dev = true;
+
+            if (parser.dev) 
+            {
+                returned = userInter.Init(ref parser);
+            }
+            else returned = cLI.GetInput(ref args, ref userInter, parser);
+
+            Console.WriteLine($"{returned} files downloaded to: {DataParser.workingDir}");
         }
     }
 }

@@ -17,15 +17,25 @@ namespace NovelReader.WebRetriever
         /// number of results fetched
         /// </summary>
         int numres;
-        public bool SearchNovel(int startChapter, string novelname)
+        public bool SearchNovel(int startChapter, string novelname, string source="")
         {
             Console.WriteLine($"Searching for {novelname}...");
-            bool result = SearchFreeWebNovel(startChapter, novelname);
-            if(result == false) SearchNovelTrench(startChapter, novelname);
-            return result;
+            if (source == "freewebnovel"){
+                return SearchFreeWebNovel(ref startChapter, ref novelname);
+            }
+            else if (source == "noveltrench")
+            {
+                return SearchNovelTrench(ref startChapter, ref novelname);
+            }
+            else
+            {
+                bool result = SearchFreeWebNovel(ref startChapter, ref novelname);
+                if (result == false) SearchNovelTrench(ref startChapter, ref novelname);
+                return result;
+            }
         }
 
-        private bool SearchFreeWebNovel(int startChapter, string novelname)
+        private bool SearchFreeWebNovel(ref int startChapter, ref string novelname)
         {
             var url = "https://freewebnovel.com/search/";
 
@@ -116,12 +126,12 @@ namespace NovelReader.WebRetriever
         }
 
 
-        private bool SearchNovelTrench(int startChapter, string novelname)
+        private bool SearchNovelTrench(ref int startChapter, ref string novelname)
         {
             string srchqry = novelname.Replace(" ", "+");
             var url = $"https://noveltrench.com/?s={srchqry}&post_type=wp-manga&op=&author=&artist=&release=&adult=";
 
-            var html = Request(url);
+            var html = Request(ref url);
 
             if (html.DocumentNode != null)
             {
@@ -175,7 +185,7 @@ namespace NovelReader.WebRetriever
                         int index = nextPage.IndexOf("wp-manga") + "wp-manga".Length;
                         if (index >= 0) nextPage = nextPage.Substring(0, index);
                         nextPage = nextPage.Replace("&#038;", "&");
-                        html = Request(nextPage);
+                        html = Request(ref nextPage);
                         tmpNode = tmpNode.SelectSingleNode("a");
                     }
                     else nextPage = "DEAD";
@@ -198,7 +208,7 @@ namespace NovelReader.WebRetriever
             return true;
         }
 
-        private HtmlDocument Request(string url)
+        private HtmlDocument Request(ref string url)
         {
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
@@ -219,7 +229,7 @@ namespace NovelReader.WebRetriever
             return html;
         }
 
-        public List<Novel.Novel> GetNovelChapters(Novel.Novel novel, int first)
+        public List<Novel.Novel> GetNovelChapters(ref Novel.Novel novel, ref int first)
         {
             List<Novel.Novel> novels = new List<Novel.Novel>();
             for (int i = first; i <= novel.totalChapters; ++i)

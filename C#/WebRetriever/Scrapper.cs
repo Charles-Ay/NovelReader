@@ -27,6 +27,7 @@ namespace NovelReader.WebRetriever
 
                 ConsoleSpiner spin = new ConsoleSpiner();
 
+                Console.WriteLine();
                 foreach (Novel.Novel novel in novels)
                 {
                     Console.WriteLine($"Retriving - {novel.name} chapter {novel.totalChapters}...");

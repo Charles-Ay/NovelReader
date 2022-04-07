@@ -3,14 +3,12 @@ using System;
 using System.Collections.Generic;
 using NovelReader.WebRetriever;
 
-namespace NovelReader
+namespace NovelReader.UI
 {
-    public class Front
+    public class FrontEnd
     {
-        public int Init()
+        public int Init(ref DataParser parser)
         {
-            DataParser parser = new DataParser();
-
             string name = "";
             int maxChapter = 0, first = 0;
             Console.Write("Enter novel name: ");
@@ -40,16 +38,23 @@ namespace NovelReader
                 Console.WriteLine("Invalid Input, please try again(refer to logs for further details)");
                 goto MAX_CHAPTER;
             }
-            var sRetType = search(name, first);
+            var sRetType = search(ref name, ref first);
             if (sRetType == null) return 0;
             return parser.Fetch(new Novel.Novel(sRetType.name, maxChapter, sRetType.link, sRetType.source), first);
         }
 
+        public int InitCLI(ref DataParser parser, ref string name, ref int first, ref int max, string source= "")
+        {
+            var sRetType = search(ref name, ref first, source);
+            if (sRetType == null) return 0;
+            return parser.Fetch(new Novel.Novel(sRetType.name, max, sRetType.link, sRetType.source), first);
+        }
+
         //returs link we are using
-        public SearchType search(string novelname, int startingChapter)
+        public SearchType search(ref string novelname, ref int startingChapter, string source="")
         {
             Search search = new Search();
-            search.SearchNovel(startingChapter, novelname);
+            search.SearchNovel(startingChapter, novelname, source);
             Console.WriteLine();
             Console.WriteLine($"Search returned {search.results.Count} result(s):");
             for(int i = 0;i < search.results.Count; ++i)

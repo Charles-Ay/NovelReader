@@ -8,8 +8,9 @@ namespace NovelReader
 {
     public class DataParser
     {
-        private static string workingDir;
+        public static string workingDir { get; private set; }
         private static SQLManager.SQLManager SQLManager = new SQLManager.SQLManager();
+        public bool dev = false;
 
         public DataParser()
         {
@@ -26,10 +27,14 @@ namespace NovelReader
         {
             Scrapper retriever = new Scrapper();
             Search search = new Search();
-            //SQLManager.SQLInsertChaptersWithLinks(novel);
-            //List<Novel.Novel> novels = SQLManager.SQLGetNovelChapters(novel.name, novel.source, novel.totalChapters);
-            List<Novel.Novel> novels = search.GetNovelChapters(novel, first);
-            
+            List<Novel.Novel> novels;
+            if (dev)
+            {
+                SQLManager.SQLInsertChaptersWithLinks(novel);
+                novels = SQLManager.SQLGetNovelChapters(novel.name, novel.source, novel.totalChapters);
+            }
+            else novels = search.GetNovelChapters(ref novel, ref first);
+
             return retriever.Scrape(novels, workingDir);
         }
 
