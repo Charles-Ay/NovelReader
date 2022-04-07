@@ -7,6 +7,11 @@ namespace NovelReader.UI
 {
     public class FrontEnd
     {
+        /// <summary>
+        /// This is the entry point for the program when not in CLI mode
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <returns>Number of files downloaded</returns>
         public int Init(ref DataParser parser)
         {
             string name = "";
@@ -43,6 +48,15 @@ namespace NovelReader.UI
             return parser.Fetch(new Novel.Novel(sRetType.name, maxChapter, sRetType.link, sRetType.source), first);
         }
 
+        /// <summary>
+        /// Program entry point when using CLI
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="name"></param>
+        /// <param name="first">first chapter downloaded</param>
+        /// <param name="max">last chapter to download</param>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public int InitCLI(ref DataParser parser, ref string name, ref int first, ref int max, string source= "")
         {
             var sRetType = search(ref name, ref first, source);
@@ -50,7 +64,14 @@ namespace NovelReader.UI
             return parser.Fetch(new Novel.Novel(sRetType.name, max, sRetType.link, sRetType.source), first);
         }
 
-        //returs link we are using
+        /// <summary>
+        /// Search for the novel using the sources.
+        /// Ask for Input to get correct novel
+        /// </summary>
+        /// <param name="novelname"></param>
+        /// <param name="startingChapter"></param>
+        /// <param name="source"></param>
+        /// <returns>SearchType containing the novel chosen</returns>
         public SearchType search(ref string novelname, ref int startingChapter, string source="")
         {
             Search search = new Search();

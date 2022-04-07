@@ -13,14 +13,24 @@ namespace NovelReader.WebRetriever
 {
     public class Scrapper
     {
+        /// <summary>
+        /// Holds text to be put in novel
+        /// </summary>
         protected string novelText;
+
+        /// <summary>
+        /// Get the text on the webpage
+        /// </summary>
+        /// <param name="novels"></param>
+        /// <param name="workingDir"></param>
+        /// <returns></returns>
         public int Scrape(List<Novel.Novel> novels, string workingDir)
         {
-            //check if link is a valid html source
 
             //WUXIA IN DEV
             //if (novels[0].source == "WuxiaWorld") return doPython(novels, workingDir);
-            if(1 == 2) { }
+            //check if link is a valid html source
+            if (1 == 2) { }
             else
             {
                 bool returnedValue = false;
@@ -65,6 +75,11 @@ namespace NovelReader.WebRetriever
             }
         }
 
+        /// <summary>
+        /// Request html site
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private HtmlAgilityPack.HtmlDocument GetSite(string url)
         {
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -87,9 +102,12 @@ namespace NovelReader.WebRetriever
         }
 
         /// <summary>
-        /// run the python script for getting website data
-        /// DISABLED FOR NOW~PYTHON EXE FILE HAS NOT BE INCLUDED IN GIT
+        /// run the python script for getting website data.
+        /// DISABLED FOR NOW~PYTHON FILE WILL NOT BE INCLUDED IN GIT
         /// </summary>
+        /// <param name="novels"></param>
+        /// <param name="workingDir"></param>
+        /// <returns></returns>
         public int doPython(List<Novel.Novel> novels, string workingDir)
         {
             string getter = Path.Combine(workingDir, "TextGetter.exe");

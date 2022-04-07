@@ -7,15 +7,15 @@
 /C#/Novel/bin/Debug
 /C#/NovelReaderTest/bin/Debug
 /C#/SQLManager/bin/Debug
-/C#/NovelReader/bin/Release/Books/
+/C#/NovelReader/bin/Release/Books
 /C#/WebRetriever/bin/Debug
 
-/C#/NovelReader/obj/Debug
-/C#/Logger/obj/Debug
-/C#/Novel/obj/Debug
-/C#/NovelReaderTest/obj/Debug
-/C#/SQLManager/obj/Debug
-/C#/WebRetriever/obj/Debug
+/C#/NovelReader/obj
+/C#/Logger/obj
+/C#/Novel/obj
+/C#/NovelReaderTest/obj
+/C#/SQLManager/obj
+/C#/WebRetriever/obj
 /IN_DEVELOPMENT
 
 /Python/

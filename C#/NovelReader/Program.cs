@@ -17,7 +17,7 @@ namespace NovelReader
             FrontEnd userInter = new FrontEnd();
             int returned = 0;
 
-            if (args[0] == "-d2") parser.dev = true;
+            if (args.Length == 0 || args[0] == "-d2") parser.dev = true;
 
             if (parser.dev) 
             {

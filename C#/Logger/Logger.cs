@@ -6,6 +6,9 @@ namespace NovelReader.TextLogger
 {
     public class Logger
     {
+        /// <summary>
+        /// Contains the supported sources
+        /// </summary>
         public static Dictionary<string, string> htmlSupportedWebsites = new Dictionary<string, string>()
         {
             {"freewebnovel", "FreeWebNovel"}, {"noveltrench", "NovelTrench"}
@@ -13,17 +16,16 @@ namespace NovelReader.TextLogger
 
         private static string LogDir = Path.Combine(Directory.GetCurrentDirectory(), $@"Logs");
         private static string NAME = Path.Combine(LogDir, $"Logs_{DateTime.Now.ToFileTime()}.log");
-        private static Logger TextLogger = new Logger();
 
         private Logger()
         {
-            //if (File.Exists(NAME))
-            //{
-            //    File.Delete(NAME);
-            //}
             if (!Directory.Exists(LogDir)) Directory.CreateDirectory(LogDir);
         }
 
+        /// <summary>
+        /// Write text to log file
+        /// </summary>
+        /// <param name="text"></param>
         public static void writeToLog(string text)
         {
             if (!File.Exists(NAME)) File.Create(NAME).Dispose();
@@ -32,6 +34,11 @@ namespace NovelReader.TextLogger
             writer.Close();
         }
 
+        /// <summary>
+        /// Get the line where error was thrown
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <returns></returns>
         public static int GetLineNumber(Exception ex)
         {
             var lineNumber = 0;
@@ -48,6 +55,9 @@ namespace NovelReader.TextLogger
         }
     }
 
+    /// <summary>
+    /// Class for spining loading icon
+    /// </summary>
     public class ConsoleSpiner
     {
         int counter;

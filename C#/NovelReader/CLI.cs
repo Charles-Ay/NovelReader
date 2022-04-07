@@ -5,6 +5,9 @@ namespace NovelReader.UI
 {
     class CLI
     {
+        /// <summary>
+        /// Show help settings
+        /// </summary>
         private void Help()
         {
             Console.WriteLine();
