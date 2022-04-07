@@ -18,6 +18,8 @@
 /C#/WebRetriever/obj/Debug
 /IN_DEVELOPMENT
 
+/Python/
+
 /MainProgram/Books
 /MainProgram/Logs.log
 *.suo
