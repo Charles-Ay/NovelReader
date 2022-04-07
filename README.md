@@ -8,8 +8,6 @@
 
 To use NovelReader. Download the [**NovelReader.exe**](https://github.com/Charles-Ay/NovelReader/tree/main/MainProgram). You can also clone the [**Project**](https://github.com/Charles-Ay/NovelReader) -> build -> create a single exe using the [**ILMergeGUI.exe**](https://github.com/Charles-Ay/NovelReader/tree/main/ILMergeGUILatest) and add the build .exe file and .dlls
 
-### Installing [`mpv`](https://github.com/mpv-player/mpv/)
-
 #### Windows:
 
 Only Supports Windows for now.
@@ -79,4 +77,4 @@ Yeah, ill add some more when I get around to it. You can raise a issue if you re
 
 ### Disclaimer
 
-The disclaimer of this project can be found [here.](./DISCLIAMER.md)(usual legal mobo-jumbo)
+The disclaimer of this project can be found [here.](./DISCLIAMER.md) (usual legal mobo-jumbo)
